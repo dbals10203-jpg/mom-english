@@ -4,91 +4,89 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
 <style>
-/* VOICE: 다정하고 또박또박, 큰 글씨와 큰 버튼
-IDEA: 여행 가방 속 회화 수첩 — 한 장에 한 문장
-PICTURE: 지금 연습 중인 문장 카드 자체 + 머리띠의 말풍선 그림
-COLOUR and TYPE: 해바라기 노랑 띠, 잉크, 코랄 강조, 파랑 행동 버튼 / Jua + Noto Sans KR + Nunito
-LAYOUT: 한 열, 휴대폰 우선, 760px 안쪽 */
-:root{color-scheme:light dark;--bg:light-dark(#fffdf6,#14161b);--ink:light-dark(#1c1b19,#f3f0e8);--soft:light-dark(#6b665c,#b5afa3);--band:light-dark(#ffd84d,#3b3214);--bandInk:light-dark(#1c1b19,#fff1bd);--card:light-dark(#ffffff,#1f2229);--line:light-dark(#ece6d6,#30343d);--acc:light-dark(#d93d30,#ff7a6b);--blue:light-dark(#1f5fbf,#86b4ff);--onblue:light-dark(#ffffff,#0d1a33);--ok:light-dark(#1f7a4d,#6fd3a0);--mine:light-dark(#fff4c2,#3b3214)}
-:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+/* VOICE: 밝고 귀엽고 다정하게, 큰 글씨와 큰 버튼
+IDEA: 상황마다 얼굴이 있는 동글동글 캐릭터 친구
+PICTURE: 9개 캐릭터 카드 격자 + 응원 카드
+COLOUR and TYPE: 흰 바탕, 상황별 파스텔, 보라 행동색 / Jua + Noto Sans KR + Nunito
+LAYOUT: 한 열, 휴대폰 2열 카드, 760px 안쪽 */
+:root{color-scheme:light;--bg:#faf8ff;--ink:#22202a;--soft:#6e6a7c;--card:#ffffff;--line:#ece8f5;--pur:#7b4ce0;--pur2:#f1ecff;--acc:#e8553b;--peach:#ffe8dc;--ok:#18a385;--mine:#f1ecff}
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 'Noto Sans KR',system-ui,sans-serif;overflow-x:clip}
 button,select{font:inherit}
-.band{padding:clamp(22px,4vw,48px) max(5vw,16px)}
 main{max-width:760px;margin:0 auto}
-.top{background:var(--band);color:var(--bandInk)}
-.tw{max-width:760px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.tw svg{width:clamp(120px,32vw,220px);height:auto;flex:none}
-.kick{margin:0;font-weight:700;font-size:16px}
-h1{font-family:Jua,'Noto Sans KR',sans-serif;font-weight:400;font-size:clamp(36px,8vw,52px);line-height:1.05;margin:4px 0 16px;text-wrap:balance}
-.stats{display:flex;gap:28px;flex-wrap:wrap}
-.stats span{display:block;font:800 28px/1.1 Nunito,'Noto Sans KR',sans-serif}
-.stats small{font-size:14px}
-.h2{font-family:Jua,'Noto Sans KR',sans-serif;font-weight:400;font-size:28px;line-height:1.2;margin:0 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:12px}
-.lesson{text-align:left;background:var(--card);border:2px solid var(--line);border-radius:18px;padding:16px 18px;color:inherit;cursor:pointer;position:relative;min-height:96px}
-.lesson b{display:block;font-size:20px;padding-right:44px}
-.lesson small{color:var(--soft);font-size:15px}
-.lesson.done{border-color:var(--ok)}
-.lesson em{position:absolute;top:14px;right:14px;font-style:normal;font-size:13px;font-weight:700;color:var(--ok)}
-.review{margin-top:14px;width:100%;min-height:60px;border-radius:16px;border:2px solid var(--acc);background:none;color:var(--acc);font-weight:700;font-size:19px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
-.review:disabled{opacity:.45;cursor:default}
-.set{border-top:2px solid var(--line)}
-.setrow{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:52px}
-.setrow select{min-height:44px;font-size:16px;border-radius:10px;border:2px solid var(--line);background:var(--card);color:var(--ink);padding:0 10px}
-.setrow input{width:26px;height:26px;accent-color:var(--blue)}
-.note{color:var(--soft);font-size:14px;margin:12px 0 0}
-.lvtop{display:flex;flex-direction:column;gap:2px;margin-bottom:12px}
-.back{align-self:flex-start;background:none;border:0;color:var(--blue);font-weight:700;font-size:17px;min-height:44px;padding:0;cursor:pointer}
-.tabs{display:flex;gap:8px;margin:0 0 16px;overflow-x:auto}
-.tab{flex:1;min-height:48px;border-radius:999px;border:2px solid var(--line);background:none;color:var(--ink);font-weight:700;font-size:17px;white-space:nowrap;padding:0 14px;cursor:pointer}
-.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:22px 20px;box-shadow:0 6px 0 var(--line);animation:pop .25s ease-out}
+.band{padding:clamp(18px,4vw,40px) max(5vw,16px)}
+.top{padding:clamp(22px,4vw,40px) max(5vw,16px) 6px}
+.tw{max-width:760px;margin:auto}
+.kick{margin:0;font-weight:700;font-size:16px;color:var(--soft)}
+h1{font-family:Jua,'Noto Sans KR',sans-serif;font-weight:400;font-size:clamp(34px,8vw,48px);line-height:1.1;margin:2px 0 16px}
+.cheer{display:flex;align-items:center;gap:14px;background:var(--pur);color:#fff;border-radius:24px;padding:14px 20px 14px 12px}
+.cheer svg{width:86px;height:86px;flex:none}
+.cheer b{display:block;font-family:Jua,'Noto Sans KR',sans-serif;font-weight:400;font-size:24px;line-height:1.25}
+.cheer small{font-size:15px;opacity:.9}
+.h2{font-family:Jua,'Noto Sans KR',sans-serif;font-weight:400;font-size:26px;line-height:1.2;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:620px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.lesson{text-align:left;background:var(--bg2);border:0;border-radius:22px;padding:12px 14px 16px;color:var(--ink);cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:flex-start;transition:transform .15s}
+.lesson:active{transform:scale(.97)}
+.lesson .chr{width:64px;height:64px;margin-bottom:6px}
+.lesson b{font-size:19px;line-height:1.3;word-break:keep-all}
+.lesson small{color:#4f4b5c;font-size:14px;line-height:1.35;word-break:keep-all;margin-top:2px}
+.lesson em{position:absolute;top:12px;right:12px;font-style:normal;font-size:13px;font-weight:700;background:#fff;color:var(--ok);border-radius:999px;padding:2px 10px}
+.review{margin-top:14px;width:100%;min-height:62px;border-radius:20px;border:0;background:var(--peach);color:#b8401f;font-weight:700;font-size:19px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+.review:disabled{opacity:.5;cursor:default}
+.set{padding-top:4px}
+.setbox{background:var(--card);border-radius:20px;padding:6px 18px}
+.setrow{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:56px}
+.setrow+.setrow{border-top:1px solid var(--line)}
+.setrow select{min-height:44px;font-size:16px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink);padding:0 10px}
+.setrow input{width:26px;height:26px;accent-color:var(--pur)}
+.note{color:var(--soft);font-size:14px;margin:12px 4px 0}
+.lvtop{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.lvtop .chr{width:58px;height:58px;flex:none}
+.lvtop .h2{margin:0}
+.back{background:var(--card);border:0;border-radius:14px;color:var(--pur);font-weight:700;font-size:17px;min-height:48px;padding:0 16px;cursor:pointer;margin-bottom:10px}
+.tabs{display:flex;gap:6px;margin:0 0 16px;background:var(--pur2);padding:5px;border-radius:999px}
+.tab{flex:1;min-height:48px;border-radius:999px;border:0;background:none;color:var(--pur);font-weight:700;font-size:16px;white-space:nowrap;padding:0 8px;cursor:pointer}
+.tab.on{background:var(--pur);color:#fff}
+.card{background:var(--card);border-radius:26px;padding:22px 20px;box-shadow:0 8px 24px rgba(80,60,140,.08);animation:pop .25s ease-out}
 @keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
-@media(prefers-reduced-motion:reduce){.card{animation:none}}
+@media(prefers-reduced-motion:reduce){.card{animation:none}.lesson{transition:none}}
 .count,.lab{font-size:15px;color:var(--soft);font-weight:700;margin:0}
-.en{font:800 clamp(28px,7vw,38px)/1.2 Nunito,'Noto Sans KR',sans-serif;margin:8px 0 6px;text-wrap:balance}
+.en{font:800 clamp(27px,7vw,36px)/1.25 Nunito,'Noto Sans KR',sans-serif;margin:8px 0 6px;text-wrap:balance}
 .en.sm{font-size:21px;margin:2px 0}
-.pr{color:var(--blue);font-size:19px;margin:0 0 4px;font-weight:700}
+.pr{color:var(--pur);font-size:19px;margin:0 0 4px;font-weight:700}
 .ko{color:var(--soft);font-size:18px;margin:0}
-.big-ko{color:var(--ink);font-size:clamp(24px,6vw,30px);font-weight:700;margin:6px 0 16px;line-height:1.35}
+.big-ko{color:var(--ink);font-size:clamp(24px,6vw,30px);font-weight:700;margin:6px 0 16px;line-height:1.35;word-break:keep-all}
 .row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
-.big{flex:1;min-height:56px;padding:10px 16px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;font-weight:700;cursor:pointer}
-.big.pri{background:var(--blue);border-color:var(--blue);color:var(--onblue)}
-.big.ok{background:var(--ok);border-color:var(--ok);color:var(--onblue)}
+.big{flex:1;min-height:58px;padding:10px 16px;border-radius:18px;border:0;background:var(--pur2);color:var(--pur);font-size:18px;font-weight:700;cursor:pointer}
+.big.pri{background:var(--pur);color:#fff}
+.big.ok{background:var(--ok);color:#fff}
 .big.wide{width:100%;display:block;margin-top:10px}
-.big.sh{border-color:var(--acc);color:var(--acc)}
-.big.live{background:var(--acc);border-color:var(--acc);color:#fff}
-.big:disabled{opacity:.45;cursor:default}
-.state{min-height:1.6em;margin:8px 0 0;font-weight:700;color:var(--acc);text-align:center}
+.big.sh{background:var(--peach);color:#b8401f}
+.big.live{background:var(--acc);color:#fff}
+.big:disabled{opacity:.4;cursor:default}
+.state{min-height:1.6em;margin:8px 0 0;font-weight:700;color:#b8401f;text-align:center}
 .check{margin-top:10px}
 .check p{margin:4px 0}
-.check .bad{background:light-dark(#ffd9d4,#5a1f19);border-radius:4px;padding:0 3px;text-decoration:underline wavy var(--acc)}
+.check .bad{background:#ffe0da;border-radius:4px;padding:0 3px;text-decoration:underline wavy var(--acc)}
 .pct{font:800 24px Nunito,'Noto Sans KR',sans-serif}
 .star{margin-top:12px;background:none;border:0;color:var(--soft);text-decoration:underline;font-size:16px;min-height:44px;cursor:pointer;padding:0}
 .star.on{color:var(--acc)}
 .nav{display:flex;gap:10px;margin-top:18px}
 .chat{display:flex;flex-direction:column;gap:10px}
-.bub{max-width:88%;padding:12px 16px;border-radius:18px;background:var(--card);border:2px solid var(--line)}
+.bub{max-width:88%;padding:12px 16px;border-radius:20px;background:var(--card);box-shadow:0 4px 14px rgba(80,60,140,.07)}
 .bub.them{align-self:flex-start;border-bottom-left-radius:6px}
-.bub.me{align-self:flex-end;background:var(--mine);border-color:transparent;border-bottom-right-radius:6px}
-.bub.ask{max-width:100%;align-self:stretch;border:2px dashed var(--acc);background:var(--card)}
+.bub.me{align-self:flex-end;background:var(--mine);border-bottom-right-radius:6px;box-shadow:none}
+.bub.ask{max-width:100%;align-self:stretch;border:2px dashed var(--pur);background:var(--card)}
 .who{margin:0;font-size:13px;font-weight:700;color:var(--soft)}
-#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:16px;width:max-content;max-width:90vw;opacity:0;pointer-events:none;transition:opacity .2s;z-index:9}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-size:16px;width:max-content;max-width:90vw;opacity:0;pointer-events:none;transition:opacity .2s;z-index:9}
 #toast.show{opacity:1}
-:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
-@media(max-width:600px){.tw svg{width:110px}.stats{gap:20px}}
+.in .top{display:none}
+:focus-visible{outline:3px solid var(--pur);outline-offset:2px}
 </style></head><body>
-<header class="band top"><div class="tw">
- <div><p class="kick">엄마의 영어 연습장</p><h1>하루 10분<br>여행 영어</h1>
-  <div class="stats"><div><span id="stStreak">0일</span><small>연속 연습</small></div><div><span id="stDone">0 / 9</span><small>끝낸 상황</small></div></div></div>
- <svg viewBox="0 0 220 170" aria-hidden="true">
-  <path d="M18 22h132a14 14 0 0 1 14 14v56a14 14 0 0 1-14 14H70l-26 22 4-22H18A14 14 0 0 1 4 92V36a14 14 0 0 1 14-14z" fill="#fff" stroke="#1c1b19" stroke-width="3"/>
-  <text x="84" y="76" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="34" fill="#1c1b19">Hello!</text>
-  <path d="M120 96h84a12 12 0 0 1 12 12v32a12 12 0 0 1-12 12h-12l4 16-22-16h-54a12 12 0 0 1-12-12v-32a12 12 0 0 1 12-12z" fill="#d93d30" stroke="#1c1b19" stroke-width="3"/>
-  <text x="162" y="132" text-anchor="middle" font-family="Jua,sans-serif" font-size="24" fill="#fff">안녕!</text>
-  <path d="M172 18l34 10-10 4 6 12-6 2-8-11-10 4 2-8-14-9z" fill="#1f5fbf"/>
- </svg>
+<header class="top"><div class="tw">
+ <p class="kick">엄마의 영어 연습장</p><h1>하루 10분 여행 영어</h1>
+ <div class="cheer"><span id="cheerFace"></span><div><b id="stStreak">오늘 첫 연습을 시작해볼까요?</b><small id="stDone">끝낸 상황 0 / 9</small></div></div>
 </div></header>
 <main id="app"></main>
 <input type="file" id="fileRec" accept="audio/*" capture hidden>
@@ -178,6 +176,9 @@ d:[['m','Excuse me. Is there a pharmacy near here?','저기요. 이 근처에 �
 ['I hope to see you again.','또 만났으면 좋겠어요.','아이 홉 투 씨 유 어게인']],
 d:[['t','Beautiful day, isn\'t it?','날씨 좋죠?'],['m','Yes. The weather is so nice today.','네. 오늘 날씨 정말 좋네요.'],['t','Your English is really good!','영어 정말 잘하시네요!'],['m','Thank you. I\'ve been learning English for a few months.','고마워요. 몇 달째 영어를 배우고 있어요.'],['t','What do you like to do in your free time?','시간 날 때 뭐 하는 거 좋아하세요?'],['m','I like walking and cooking. What do you usually do on weekends?','걷기랑 요리하는 걸 좋아해요. 주말엔 보통 뭐 하세요?'],['t','I go hiking with my friends.','친구들이랑 등산 가요.'],['m','That sounds like fun. Have you ever been to Korea?','재밌겠네요. 한국에 가본 적 있어요?'],['t','Not yet, but I really want to go!','아직이요, 그래도 정말 가보고 싶어요!'],['m','I hope to see you again.','또 만났으면 좋겠어요.']]}
 ];
+const LOOK=[['blob','#ff8fb1','#ffe3ec'],['penta','#6f8fe0','#e3ebff'],['square','#35c2a6','#ddf6ef'],['circle','#ff7a52','#ffe8dc'],['square','#ffb72b','#fff1cc'],['cloud','#a77bf0','#efe6ff'],['tri','#47a9e8','#dcf1ff'],['diamond','#f2645f','#ffe1df'],['blob','#8cc63f','#ebf6dc']];
+const SH={blob:'M50 9c24 0 40 15 39 39s-15 42-40 42S10 74 11 49 26 9 50 9z',circle:'M50 11a39 39 0 1 1 0 78a39 39 0 1 1 0-78z',square:'M26 14h48a12 12 0 0 1 12 12v48a12 12 0 0 1-12 12H26a12 12 0 0 1-12-12V26a12 12 0 0 1 12-12z',penta:'M50 12l38 28-14 46H26L12 40z',cloud:'M30 86a19 19 0 0 1-5-37a24 24 0 0 1 45-9a21 21 0 0 1 8 46z',tri:'M50 14L88 84H12z',diamond:'M50 10l40 40-40 40L10 50z'};
+function face(shape,col){const dy=shape==='tri'?12:shape==='cloud'?6:2;return`<svg viewBox="0 0 100 100" class="chr" aria-hidden="true"><path d="${SH[shape]}" fill="${col}" stroke="${col}" stroke-width="8" stroke-linejoin="round"/><g transform="translate(0,${dy})"><ellipse cx="38" cy="50" rx="7" ry="8.5" fill="#1d1a24"/><ellipse cx="62" cy="50" rx="7" ry="8.5" fill="#1d1a24"/><circle cx="40.5" cy="46.5" r="2.6" fill="#fff"/><circle cx="64.5" cy="46.5" r="2.6" fill="#fff"/><ellipse cx="29" cy="61" rx="5" ry="3" fill="#fff" opacity=".35"/><ellipse cx="71" cy="61" rx="5" ry="3" fill="#fff" opacity=".35"/><path d="M45 60q5 5 10 0" fill="none" stroke="#1d1a24" stroke-width="3" stroke-linecap="round"/></g></svg>`}
 const PR={};
 L.forEach((l,li)=>{l.phrases=l.p.map((a,pi)=>{PR[a[0]]=a[2];return{en:a[0],ko:a[1],pr:a[2],key:li+'-'+pi}});l.i=li});
 const $=s=>document.querySelector(s);
@@ -199,23 +200,23 @@ const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()
 const dstr=d=>d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
 function markDay(){const t=dstr(new Date());if(!days.includes(t)){days.push(t);days=days.slice(-90);store.set('days',days);stats()}}
 function streak(){let n=0;const d=new Date();if(!days.includes(dstr(d)))d.setDate(d.getDate()-1);while(days.includes(dstr(d))){n++;d.setDate(d.getDate()-1)}return n}
-function stats(){$('#stStreak').textContent=streak()+'일';$('#stDone').textContent=done.size+' / '+L.length}
+function stats(){const n=streak();$('#stStreak').textContent=n?n+'일째 연습 중이에요!':'오늘 첫 연습을 시작해볼까요?';$('#stDone').textContent='끝낸 상황 '+done.size+' / '+L.length}
 function finishLesson(){if(cur.i>=0){done.add(cur.i);store.set('done',[...done])}markDay();stats()}
 
-function home(){stopAll();cur=null;
+function home(){stopAll();cur=null;document.body.classList.remove('in');
  $('#app').innerHTML=`<section class="band"><h2 class="h2">어떤 상황을 연습할까요?</h2>
- <div class="grid">${L.map(l=>`<button class="lesson ${done.has(l.i)?'done':''}" data-act="open" data-i="${l.i}"><b>${l.t}</b><small>${l.s}</small>${done.has(l.i)?'<em>완료</em>':''}</button>`).join('')}</div>
+ <div class="grid">${L.map(l=>`<button class="lesson" style="--bg2:${LOOK[l.i][2]}" data-act="open" data-i="${l.i}">${face(LOOK[l.i][0],LOOK[l.i][1])}<b>${l.t}</b><small>${l.s}</small>${done.has(l.i)?'<em>완료</em>':''}</button>`).join('')}</div>
  <button class="review" data-act="review" ${hard.size?'':'disabled'}><span>어려운 문장 복습</span><span>${hard.size}개</span></button></section>
- <section class="band set">
+ <section class="band set"><h2 class="h2">설정</h2><div class="setbox">
  <div class="setrow"><label for="rate">말하기 속도</label><select id="rate"><option value="0.6">아주 천천히</option><option value="0.8">천천히</option><option value="1">보통</option></select></div>
- <div class="setrow"><label for="pron">한글 발음 보기</label><input type="checkbox" id="pron"></div>
+ <div class="setrow"><label for="pron">한글 발음 보기</label><input type="checkbox" id="pron"></div></div>
  <p class="note">문장과 대본은 초중급 여행·일상 회화용 예시예요. 소리는 휴대폰에 들어 있는 영어 음성으로 나와요. 녹음과 발음 체크는 마이크를 쓸 수 있는 화면에서만 작동해요.</p></section>`;
  $('#rate').value=String(rate);$('#pron').checked=showPron;stats();window.scrollTo(0,0)}
 
 function reviewLesson(){const ps=[];L.forEach(l=>l.phrases.forEach(p=>{if(hard.has(p.key))ps.push(p)}));return{t:'어려운 문장 복습',phrases:ps,i:-1}}
 function open(i){stopAll();cur=i===-1?reviewLesson():L[i];if(!cur.phrases.length)return home();mode='learn';idx=0;lview();window.scrollTo(0,0)}
-function lview(){stopAll();const tabs=[['learn','문장 익히기'],['quiz','말하기 퀴즈']];if(cur.d)tabs.push(['role','상황극']);
- $('#app').innerHTML=`<section class="band"><div class="lvtop"><button class="back" data-act="home">← 처음으로</button><h2 class="h2">${cur.t}</h2></div>
+function lview(){stopAll();document.body.classList.add('in');const tabs=[['learn','문장 익히기'],['quiz','말하기 퀴즈']];if(cur.d)tabs.push(['role','상황극']);
+ $('#app').innerHTML=`<section class="band"><button class="back" data-act="home">← 처음으로</button><div class="lvtop">${cur.i>=0?face(LOOK[cur.i][0],LOOK[cur.i][1]):face('circle','#ff7a52')}<h2 class="h2">${cur.t}</h2></div>
  <div class="tabs">${tabs.map(([k,t])=>`<button class="tab ${mode===k?'on':''}" data-act="mode" data-m="${k}">${t}</button>`).join('')}</div><div id="pane"></div></section>`;
  if(mode==='learn')renderLearn();else if(mode==='quiz')startQuiz();else startRole()}
 
@@ -301,6 +302,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(
  case'ragain':startRole();break;
  }});
 document.addEventListener('change',e=>{if(e.target.id==='rate'){rate=+e.target.value;store.set('rate',rate);say('This is the speed.',rate)}if(e.target.id==='pron'){showPron=e.target.checked;store.set('pron',showPron)}});
+$('#cheerFace').innerHTML=face('circle','#ffc83d');
 home();
 }
 </script></body></html>
